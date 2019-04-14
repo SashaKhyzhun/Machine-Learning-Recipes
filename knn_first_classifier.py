@@ -5,7 +5,6 @@ Created on Fri Apr 12 14:45:45 2019
 
 @author: SashaKhyzhun
 """
-
 from sklearn import datasets
 from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
@@ -17,17 +16,18 @@ def euc(a, b):
 
 
 class ScrappyKNN:
-    def fit(self, x_train, y_train):
-        self.x_train = x_train
-        self.y_train = y_train
 
-    def predict(self, x_test):
-        predictions = []
-        for row in x_test:
+    def fit(self, _x_train, _y_train):
+        self.x_train = _x_train
+        self.y_train = _y_train
+
+    def predict(self, _x_test):
+        _predictions = []
+        for row in _x_test:
             label = self.closest(row)
-            predictions.append(label)
+            _predictions.append(label)
 
-        return predictions
+        return _predictions
 
     def closest(self, row):
         best_dist = euc(row, self.x_train[0])
